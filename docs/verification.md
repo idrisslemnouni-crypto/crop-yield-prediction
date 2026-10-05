@@ -5,7 +5,7 @@
 - Official archive downloaded, exact byte count and official MD5 matched; three source CSVs extracted. Source SHA-256 hashes recorded in reports/metrics.json.
 - Full training executed on 9,524 genuine county-years from 528 counties, with fixed chronological splits. Every reported metric derives from executed predictions.
 - A fresh Git clone and a new isolated Python 3.12 virtual environment installed requirements-lock.txt and the editable package successfully.
-- The fresh clone downloaded the source independently and ran the full training pipeline. Validation metrics, final-test metrics and selection were identical to the first run. All saved final-test predictions were compared for equality within floating-point tolerance; source hashes matched.
+- The fresh clone downloaded the source independently and ran the full training pipeline. Selection and source hashes matched; validation/test metrics and all saved predictions matched within 1e-10 absolute and 1e-12 relative floating-point tolerance. One Random Forest validation MAE differed by about 5e-15 between runs, consistent with parallel floating-point summation.
 - pytest: **33 passed** in the project and in the fresh clone, including the real-artifact inference check. No skipped test once the artifact was trained.
 - Ruff lint and formatting checks passed; modules compiled; pip check found no broken dependencies.
 - Notebook: five code cells executed successfully; notebook format validated; no error output; all model RMSE values recomputed from held-out predictions.
