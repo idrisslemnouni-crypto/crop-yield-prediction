@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maize yield · Historical benchmark</title>
+<style>
+body{font:16px/1.55 system-ui,sans-serif;margin:0;background:#f4f5ef;color:#1d352b}
+main{max-width:860px;margin:48px auto;padding:0 24px}h1{font-size:40px;line-height:1.12}
+.eyebrow{letter-spacing:.13em;font-size:12px;font-weight:700}a{color:#176b50}
+.scope{border-left:3px solid #be932e;padding:12px 20px;background:#fff9e8}
+textarea{box-sizing:border-box;width:100%;height:260px;padding:16px;border:1px solid #97ada0;border-radius:8px;font:13px/1.5 monospace}
+button{background:#176b50;color:white;padding:12px 20px;border:0;border-radius:6px;font:inherit;cursor:pointer;margin:12px 10px 12px 0}
+button.secondary{background:#dde8df;color:#173a28}pre{white-space:pre-wrap;padding:20px;background:#e5ebe5;border-radius:8px}
+footer{font-size:13px;margin-top:32px}label{display:block;font-weight:600;margin:20px 0 8px}
+</style>
+<main>
+<p class="eyebrow">DATA SCIENCE × AGRICULTURE</p>
+<h1>County maize yield<br>from weather and soil.</h1>
+<p>April–July weather. Eight US Corn Belt states. A model selected on chronological validation.</p>
+<p class="scope">Historical benchmark, 2000–2018. Retrospective reanalysis inputs. This demonstration does not establish operational forecasting performance or validity in Morocco.</p>
+<p id="health" aria-live="polite">Checking model availability…</p>
+<label for="input">Monthly input features (JSON)</label>
+<textarea id="input" spellcheck="false" aria-describedby="help"></textarea>
+<p id="help">Load a real held-out example, or edit it. Yield is in bushels per acre; water balance equals precipitation − ET0. No target yield is included in the request.</p>
+<button class="secondary" id="example">Load real example</button><button id="predict">Run prediction</button>
+<pre id="result" aria-live="polite">Prediction will appear here.</pre>
+<footer><a href="/docs">API schema and interactive docs</a> · Source: <a href="https://zenodo.org/records/7751191">Paudel et al., Zenodo · CC BY 4.0</a><br>AI-assisted development; results computed from executed code.</footer>
+</main>
+<script>
+const input=document.getElementById('input'),result=document.getElementById('result');
+async function readResponse(response){const data=await response.json();if(!response.ok)throw new Error(JSON.stringify(data.detail||data));return data;}
+document.getElementById('example').onclick=async()=>{try{input.value=JSON.stringify(await readResponse(await fetch('/example')),null,2);}catch(e){result.textContent=e.message;}};
+document.getElementById('predict').onclick=async()=>{try{result.textContent='Predicting…';const payload=JSON.parse(input.value);result.textContent=JSON.stringify(await readResponse(await fetch('/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})),null,2);}catch(e){result.textContent='Input or model error: '+e.message;}};
+fetch('/health').then(async r=>{const d=await r.json();document.getElementById('health').textContent=d.status==='ready'?'Model ready: '+d.model+' · trained on '+d.training_years.join('–'):'Model unavailable. Run training, then restart the API.';}).catch(()=>{document.getElementById('health').textContent='API unreachable.';});
+</script>
+</html>

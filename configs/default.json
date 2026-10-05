@@ -1,0 +1,11 @@
+{
+  "states": ["IA", "IL", "IN", "OH", "MN", "WI", "MI", "MO"],
+  "start_year": 2000,
+  "train_end": 2013,
+  "validation_end": 2015,
+  "test_end": 2018,
+  "months": [4, 5, 6, 7],
+  "cutoff_dekad": 21,
+  "seed": 42,
+  "bootstrap_repeats": 1000
+}

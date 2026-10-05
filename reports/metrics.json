@@ -1,0 +1,157 @@
+{
+  "created_at_utc": "2026-10-05T00:22:50.502484+00:00",
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "shap": "0.52.0",
+    "fastapi": "0.142.2",
+    "joblib": "1.6.0"
+  },
+  "config": {
+    "states": [
+      "IA",
+      "IL",
+      "IN",
+      "OH",
+      "MN",
+      "WI",
+      "MI",
+      "MO"
+    ],
+    "start_year": 2000,
+    "train_end": 2013,
+    "validation_end": 2015,
+    "test_end": 2018,
+    "months": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "cutoff_dekad": 21,
+    "seed": 42,
+    "bootstrap_repeats": 1000
+  },
+  "selection_rule": "minimum validation RMSE; never select on final test",
+  "selected_model": "xgboost",
+  "validation": {
+    "global_mean": {
+      "rmse": 35.98181467355869,
+      "mae": 31.011888157513834,
+      "r2": -1.2453607770884978
+    },
+    "county_trend": {
+      "rmse": 34.13333287340067,
+      "mae": 26.862300199599968,
+      "r2": -1.02058627804651
+    },
+    "random_forest": {
+      "rmse": 22.89794082699054,
+      "mae": 18.720355915796535,
+      "r2": 0.09068812093550871
+    },
+    "xgboost": {
+      "rmse": 22.877019240868457,
+      "mae": 18.502969186333694,
+      "r2": 0.09234901750391378
+    }
+  },
+  "test": {
+    "global_mean": {
+      "rmse": 41.22061615473414,
+      "mae": 35.16028097049034,
+      "r2": -1.542006335049538
+    },
+    "county_trend": {
+      "rmse": 26.787117900160904,
+      "mae": 22.066933358731806,
+      "r2": -0.07349406693542337
+    },
+    "random_forest": {
+      "rmse": 33.51358148040915,
+      "mae": 28.857465200023608,
+      "r2": -0.6803097749989406
+    },
+    "xgboost": {
+      "rmse": 33.21305122207002,
+      "mae": 28.26934611075735,
+      "r2": -0.6503088196945324
+    }
+  },
+  "validation_ablation_xgboost_without_weather": {
+    "rmse": 24.877601400582765,
+    "mae": 19.833205714321437,
+    "r2": -0.07333926580773986
+  },
+  "split_sizes": {
+    "train": 7186,
+    "validation": 947,
+    "test": 1391
+  },
+  "data_audit": {
+    "source_yield_rows": 45499,
+    "source_weather_rows": 577980,
+    "source_soil_rows": 917,
+    "selected_yield_rows": 12065,
+    "source_zero_yield_rows": 501,
+    "selected_zero_yield_rows": 6,
+    "retained_zero_yield_rows": 0,
+    "dropped_without_soil": 2541,
+    "dropped_without_complete_weather": 0,
+    "retained_rows": 9524,
+    "counties": 528,
+    "states": [
+      "IA",
+      "IL",
+      "IN",
+      "MI",
+      "MN",
+      "MO",
+      "OH",
+      "WI"
+    ],
+    "year_counts": {
+      "2000": 522,
+      "2001": 522,
+      "2002": 524,
+      "2003": 525,
+      "2004": 520,
+      "2005": 522,
+      "2006": 517,
+      "2007": 519,
+      "2008": 513,
+      "2009": 515,
+      "2010": 519,
+      "2011": 492,
+      "2012": 500,
+      "2013": 476,
+      "2014": 483,
+      "2015": 464,
+      "2016": 469,
+      "2017": 488,
+      "2018": 434
+    },
+    "monthly_dekads_required": 3,
+    "cutoff_dekad": 21,
+    "target_unit": "bushels/acre"
+  },
+  "source_sha256": {
+    "YIELD_COUNTY_US.csv": "20bed8fee96e614ea7f254d1140f401c77fd16d08eecfb0db1a0cb490852c5b3",
+    "METEO_COUNTY_US.csv": "7458c1682fea0494c61e812ea1162256344441186f7991b40d8a19bcb7427201",
+    "SOIL_COUNTY_US.csv": "d71073640368946d50b59a2822f2d6d0543b5c51e1eeb85854ca79fd02025fe7"
+  },
+  "model_sha256": "7fa8f8b1a4818d8740e5431dc70539ea6b828b81e771374ae1dc4a73980a3c2d",
+  "test_rmse_year_bootstrap_95pct": {
+    "lower": 29.321279049534045,
+    "upper": 35.71287136757186,
+    "unit": "bushels/acre",
+    "resampling_unit": "year",
+    "years": 3,
+    "warning": "Only three test-year clusters; this interval is fragile and descriptive."
+  },
+  "negative_predictions": 0,
+  "test_counties_unseen_in_final_train": 0
+}
