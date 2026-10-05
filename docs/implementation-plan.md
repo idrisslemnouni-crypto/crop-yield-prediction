@@ -9,8 +9,8 @@
 ## Global constraints
 
 - Actual public data; official archive checksum; no fabricated metrics.
-- IA, IL, IN, OH, MN, WI, MI, MO; 2000â€“2018; weather dekads 10â€“21.
-- Train through 2013; validation 2014â€“2015; test 2016â€“2018; selection only on validation.
+- IA, IL, IN, OH, MN, WI, MI, MO; 2000–2018; weather dekads 10–21.
+- Train through 2013; validation 2014–2015; test 2016–2018; selection only on validation.
 - Code MIT; source data CC BY 4.0; no secrets, raw data or pickle models in Git.
 - Execute in this session, sequentially, to minimize resource use.
 
