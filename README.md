@@ -74,6 +74,24 @@ The selected model's descriptive year-bootstrap RMSE range is 29.32–35.71. Onl
 
 Evidence: [metrics, versions and hashes](reports/metrics.json), [all held-out predictions](reports/test_predictions.csv), [group metrics](reports/group_metrics.csv). The original protocol and final-test results are retained; additional development must use a new evaluation protocol and an untouched future/geographic test set.
 
+## Expanding-window development diagnostics
+
+A retrospective check now compares five fixed models over six annual folds (2010–2015). Each fold trains only on 2000 through the previous year. Median imputation, state encoding and Ridge scaling are fit within that training fold. Ridge (alpha 10) adds a linear comparison; it has no claimed final-test score.
+
+| Model | Pooled development RMSE | MAE | R² |
+|---|---:|---:|---:|
+| county_trend | 34.74 | 26.20 | 0.007 |
+| global_mean | 35.63 | 28.20 | -0.044 |
+| random_forest | 30.75 | 23.49 | 0.222 |
+| ridge | 33.44 | 25.63 | 0.080 |
+| xgboost | 28.43 | 21.82 | 0.335 |
+
+![Expanding-window development errors](reports/figures/development-backtest.png)
+
+These are pooled errors from actual out-of-year predictions, not averages of annual R². They are development diagnostics on already available data. The original 2016–2018 test and selected model stay as published; this is **not a new untouched evaluation**. XGBoost's development advantage does not undo its later test failure. No hyperparameters are searched or model automatically reselected.
+
+Run `python -m crop_yield.cli backtest`. See [protocol and interpretation](docs/backtesting.md), [fold metrics and data hash](reports/development_backtest.json) and [development predictions](reports/development_predictions.csv). This command writes separate development reports and never replaces the model or final-test artifacts.
+
 ## Explainability
 
 ![XGBoost SHAP attribution](reports/figures/shap-importance.png)
@@ -127,7 +145,7 @@ src/crop_yield/features.py    cutoff, validation, feature joins
 src/crop_yield/modeling.py    baselines, selection, training
 src/crop_yield/reporting.py   plots, SHAP, actual evidence
 src/crop_yield/predict.py     inference contracts
-src/crop_yield/cli.py         download / train / predict
+src/crop_yield/cli.py         download / train / backtest / predict
 app/                         FastAPI, JSON demo, OpenAPI docs
 tests/                       data, leakage, model and API contracts
 notebooks/01_analysis.ipynb   executed compact analysis
@@ -146,7 +164,7 @@ Negative final-test R²; chronology drift; county-level aggregation; biased cove
 
 ## Improvements
 
-Use forward-chaining development folds before locking a **new untouched** test period. Detrend yields with training-only historical county trends and test residual learning. Add explicit forecast-vintage and station/field validation; document soil units; investigate sample coverage; evaluate calibration and spatial transfer. These are future tasks, not completed results.
+Forward-chaining development diagnostics are now implemented; lock a **new untouched** future/geographic test period before making improved generalization claims. Detrend yields with training-only historical county trends and test residual learning. Add explicit forecast-vintage and station/field validation; document soil units; investigate sample coverage; evaluate calibration and spatial transfer. These are future tasks, not completed results.
 
 ## Learning, interview and AI transparency
 

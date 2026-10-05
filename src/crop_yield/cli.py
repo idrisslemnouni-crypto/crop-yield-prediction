@@ -5,6 +5,7 @@ import json
 import logging
 from pathlib import Path
 
+from crop_yield.backtesting import run_backtesting
 from crop_yield.data import download_data
 from crop_yield.features import build_table
 from crop_yield.modeling import run_training
@@ -13,7 +14,7 @@ from crop_yield.predict import predict_file
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["download", "train", "predict"])
+    parser.add_argument("command", choices=["download", "train", "backtest", "predict"])
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--config", type=Path)
     parser.add_argument("--input", type=Path)
@@ -28,8 +29,12 @@ def main():
         print(json.dumps(predict_file(root / "models" / "model.joblib", args.input), indent=2))
         return
     raw = download_data(root / "data" / "raw")
-    if args.command == "train":
+    if args.command in {"train", "backtest"}:
         table, audit = build_table(raw, config)
+        if args.command == "backtest":
+            result = run_backtesting(table, config, root)
+            print(json.dumps(result["pooled"], indent=2))
+            return
         processed = root / "data" / "processed"
         processed.mkdir(exist_ok=True)
         table.to_csv(processed / "features.csv", index=False)

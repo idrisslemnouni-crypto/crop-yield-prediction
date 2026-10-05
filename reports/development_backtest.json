@@ -1,0 +1,409 @@
+{
+  "protocol": "expanding_window_development_only",
+  "development_years": [
+    2000,
+    2015
+  ],
+  "excluded_final_test_years": [
+    2016,
+    2018
+  ],
+  "development_sha256": "d4bde1620be91bac8195bcf9e139986e60df87edb3d1a0524018e465b0e537c9",
+  "features": [
+    "FYEAR",
+    "SM_WHC",
+    "tavg_04",
+    "tmax_04",
+    "tmin_04",
+    "prec_04",
+    "et0_04",
+    "balance_04",
+    "tavg_05",
+    "tmax_05",
+    "tmin_05",
+    "prec_05",
+    "et0_05",
+    "balance_05",
+    "tavg_06",
+    "tmax_06",
+    "tmin_06",
+    "prec_06",
+    "et0_06",
+    "balance_06",
+    "tavg_07",
+    "tmax_07",
+    "tmin_07",
+    "prec_07",
+    "et0_07",
+    "balance_07",
+    "STATE"
+  ],
+  "seed": 42,
+  "folds": [
+    {
+      "model": "global_mean",
+      "validation_year": 2010,
+      "train_start": 2000,
+      "train_end": 2009,
+      "train_rows": 5199,
+      "validation_rows": 519,
+      "rmse": 24.886758961828775,
+      "mae": 19.880703492334565,
+      "r2": -0.017791590913200483
+    },
+    {
+      "model": "county_trend",
+      "validation_year": 2010,
+      "train_start": 2000,
+      "train_end": 2009,
+      "train_rows": 5199,
+      "validation_rows": 519,
+      "rmse": 23.556525311396594,
+      "mae": 17.519359580907008,
+      "r2": 0.08810541572669428
+    },
+    {
+      "model": "ridge",
+      "validation_year": 2010,
+      "train_start": 2000,
+      "train_end": 2009,
+      "train_rows": 5199,
+      "validation_rows": 519,
+      "rmse": 36.67738162538159,
+      "mae": 31.100825223638644,
+      "r2": -1.2106440699062815
+    },
+    {
+      "model": "random_forest",
+      "validation_year": 2010,
+      "train_start": 2000,
+      "train_end": 2009,
+      "train_rows": 5199,
+      "validation_rows": 519,
+      "rmse": 22.17937001717427,
+      "mae": 16.90159621299858,
+      "r2": 0.19161064141742912
+    },
+    {
+      "model": "xgboost",
+      "validation_year": 2010,
+      "train_start": 2000,
+      "train_end": 2009,
+      "train_rows": 5199,
+      "validation_rows": 519,
+      "rmse": 20.188600433965917,
+      "mae": 15.106602751450732,
+      "r2": 0.3302162590682721
+    },
+    {
+      "model": "global_mean",
+      "validation_year": 2011,
+      "train_start": 2000,
+      "train_end": 2010,
+      "train_rows": 5718,
+      "validation_rows": 492,
+      "rmse": 25.58924201015055,
+      "mae": 20.128318148081792,
+      "r2": -0.0018568832655998513
+    },
+    {
+      "model": "county_trend",
+      "validation_year": 2011,
+      "train_start": 2000,
+      "train_end": 2010,
+      "train_rows": 5718,
+      "validation_rows": 492,
+      "rmse": 20.324979194364257,
+      "mae": 16.08490929576977,
+      "r2": 0.36795054316244435
+    },
+    {
+      "model": "ridge",
+      "validation_year": 2011,
+      "train_start": 2000,
+      "train_end": 2010,
+      "train_rows": 5718,
+      "validation_rows": 492,
+      "rmse": 25.166451240251522,
+      "mae": 20.930623341502688,
+      "r2": 0.03097540139704802
+    },
+    {
+      "model": "random_forest",
+      "validation_year": 2011,
+      "train_start": 2000,
+      "train_end": 2010,
+      "train_rows": 5718,
+      "validation_rows": 492,
+      "rmse": 25.711701548460663,
+      "mae": 21.488350140207427,
+      "r2": -0.011468773747331129
+    },
+    {
+      "model": "xgboost",
+      "validation_year": 2011,
+      "train_start": 2000,
+      "train_end": 2010,
+      "train_rows": 5718,
+      "validation_rows": 492,
+      "rmse": 25.03171559398237,
+      "mae": 20.671055782907377,
+      "r2": 0.041323515540293676
+    },
+    {
+      "model": "global_mean",
+      "validation_year": 2012,
+      "train_start": 2000,
+      "train_end": 2011,
+      "train_rows": 6210,
+      "validation_rows": 500,
+      "rmse": 54.52659513715338,
+      "mae": 43.132639291465374,
+      "r2": -1.0458399547706798
+    },
+    {
+      "model": "county_trend",
+      "validation_year": 2012,
+      "train_start": 2000,
+      "train_end": 2011,
+      "train_rows": 6210,
+      "validation_rows": 500,
+      "rmse": 58.30753474426959,
+      "mae": 51.445242686671705,
+      "r2": -1.339398767000053
+    },
+    {
+      "model": "ridge",
+      "validation_year": 2012,
+      "train_start": 2000,
+      "train_end": 2011,
+      "train_rows": 6210,
+      "validation_rows": 500,
+      "rmse": 54.25083437973977,
+      "mae": 44.8635181375954,
+      "r2": -1.025199172516122
+    },
+    {
+      "model": "random_forest",
+      "validation_year": 2012,
+      "train_start": 2000,
+      "train_end": 2011,
+      "train_rows": 6210,
+      "validation_rows": 500,
+      "rmse": 51.367088270512795,
+      "mae": 41.4012669038844,
+      "r2": -0.8156193153356524
+    },
+    {
+      "model": "xgboost",
+      "validation_year": 2012,
+      "train_start": 2000,
+      "train_end": 2011,
+      "train_rows": 6210,
+      "validation_rows": 500,
+      "rmse": 46.37306718165343,
+      "mae": 38.205897671508794,
+      "r2": -0.47974383959751377
+    },
+    {
+      "model": "global_mean",
+      "validation_year": 2013,
+      "train_start": 2000,
+      "train_end": 2012,
+      "train_rows": 6710,
+      "validation_rows": 476,
+      "rmse": 29.133525621223292,
+      "mae": 25.392093576625875,
+      "r2": -0.6520711760577855
+    },
+    {
+      "model": "county_trend",
+      "validation_year": 2013,
+      "train_start": 2000,
+      "train_end": 2012,
+      "train_rows": 6710,
+      "validation_rows": 476,
+      "rmse": 27.685932118235353,
+      "mae": 22.520825280035606,
+      "r2": -0.4919730032819176
+    },
+    {
+      "model": "ridge",
+      "validation_year": 2013,
+      "train_start": 2000,
+      "train_end": 2012,
+      "train_rows": 6710,
+      "validation_rows": 476,
+      "rmse": 23.773556274369675,
+      "mae": 18.75608196787922,
+      "r2": -0.10009697453612132
+    },
+    {
+      "model": "random_forest",
+      "validation_year": 2013,
+      "train_start": 2000,
+      "train_end": 2012,
+      "train_rows": 6710,
+      "validation_rows": 476,
+      "rmse": 25.120980287819197,
+      "mae": 21.03871649836595,
+      "r2": -0.2283321830780356
+    },
+    {
+      "model": "xgboost",
+      "validation_year": 2013,
+      "train_start": 2000,
+      "train_end": 2012,
+      "train_rows": 6710,
+      "validation_rows": 476,
+      "rmse": 23.092461934386826,
+      "mae": 19.329620669068408,
+      "r2": -0.037966024630987194
+    },
+    {
+      "model": "global_mean",
+      "validation_year": 2014,
+      "train_start": 2000,
+      "train_end": 2013,
+      "train_rows": 7186,
+      "validation_rows": 483,
+      "rmse": 38.96927649112969,
+      "mae": 34.59640173352948,
+      "r2": -2.9750028793965364
+    },
+    {
+      "model": "county_trend",
+      "validation_year": 2014,
+      "train_start": 2000,
+      "train_end": 2013,
+      "train_rows": 7186,
+      "validation_rows": 483,
+      "rmse": 39.61363545125363,
+      "mae": 31.208309704494702,
+      "r2": -3.1075434243822366
+    },
+    {
+      "model": "ridge",
+      "validation_year": 2014,
+      "train_start": 2000,
+      "train_end": 2013,
+      "train_rows": 7186,
+      "validation_rows": 483,
+      "rmse": 22.88106172281941,
+      "mae": 18.123717122979865,
+      "r2": -0.37039292394230294
+    },
+    {
+      "model": "random_forest",
+      "validation_year": 2014,
+      "train_start": 2000,
+      "train_end": 2013,
+      "train_rows": 7186,
+      "validation_rows": 483,
+      "rmse": 22.936568704152744,
+      "mae": 18.784354067009584,
+      "r2": -0.3770498387105421
+    },
+    {
+      "model": "xgboost",
+      "validation_year": 2014,
+      "train_start": 2000,
+      "train_end": 2013,
+      "train_rows": 7186,
+      "validation_rows": 483,
+      "rmse": 21.904543275670335,
+      "mae": 17.592929993307617,
+      "r2": -0.2559176584536216
+    },
+    {
+      "model": "global_mean",
+      "validation_year": 2015,
+      "train_start": 2000,
+      "train_end": 2014,
+      "train_rows": 7669,
+      "validation_rows": 464,
+      "rmse": 31.351126785343904,
+      "mae": 26.171279974010904,
+      "r2": -0.45070587834777287
+    },
+    {
+      "model": "county_trend",
+      "validation_year": 2015,
+      "train_start": 2000,
+      "train_end": 2014,
+      "train_rows": 7669,
+      "validation_rows": 464,
+      "rmse": 22.1467083950914,
+      "mae": 17.97488089423574,
+      "r2": 0.27607856374627193
+    },
+    {
+      "model": "ridge",
+      "validation_year": 2015,
+      "train_start": 2000,
+      "train_end": 2014,
+      "train_rows": 7669,
+      "validation_rows": 464,
+      "rmse": 24.467011153010752,
+      "mae": 18.610161361153178,
+      "r2": 0.11644232844312241
+    },
+    {
+      "model": "random_forest",
+      "validation_year": 2015,
+      "train_start": 2000,
+      "train_end": 2014,
+      "train_rows": 7669,
+      "validation_rows": 464,
+      "rmse": 26.233255734305303,
+      "mae": 21.06415053230449,
+      "r2": -0.01572805504533914
+    },
+    {
+      "model": "xgboost",
+      "validation_year": 2015,
+      "train_start": 2000,
+      "train_end": 2014,
+      "train_rows": 7669,
+      "validation_rows": 464,
+      "rmse": 25.053202193927124,
+      "mae": 19.8419645079251,
+      "r2": 0.07359786130672863
+    }
+  ],
+  "pooled": {
+    "county_trend": {
+      "rmse": 34.742765914257106,
+      "mae": 26.197278628097674,
+      "r2": 0.006850053601979655
+    },
+    "global_mean": {
+      "rmse": 35.625405104656906,
+      "mae": 28.196220100484076,
+      "r2": -0.04425284248972905
+    },
+    "random_forest": {
+      "rmse": 30.746550065572617,
+      "mae": 23.485299274044856,
+      "r2": 0.22218049730459088
+    },
+    "ridge": {
+      "rmse": 33.44064392785411,
+      "mae": 25.626352863861737,
+      "r2": 0.07989941633206665
+    },
+    "xgboost": {
+      "rmse": 28.432469169893448,
+      "mae": 21.81949259232077,
+      "r2": 0.3348567365941362
+    }
+  },
+  "parameters": {
+    "global_mean": "DummyRegressor()",
+    "county_trend": "CountyTrend()",
+    "ridge": "Pipeline(steps=[('preprocess',\n                 ColumnTransformer(transformers=[('numeric',\n                                                  SimpleImputer(keep_empty_features=True,\n                                                                strategy='median'),\n                                                  ['FYEAR', 'SM_WHC', 'tavg_04',\n                                                   'tmax_04', 'tmin_04',\n                                                   'prec_04', 'et0_04',\n                                                   'balance_04', 'tavg_05',\n                                                   'tmax_05', 'tmin_05',\n                                                   'prec_05', 'et0_05',\n                                                   'balance_05', 'tavg_06',\n                                                   'tmax_06', 'tmin_06',\n                                                   'prec_06', 'et0_06',\n                                                   'balance_06', 'tavg_07',\n                                                   'tmax_07', 'tmin_07',\n                                                   'prec_07', 'et0_07',\n                                                   'balance_07']),\n                                                 ('state',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False),\n                                                  ['STATE'])],\n                                   verbose_feature_names_out=False)),\n                ('scale', StandardScaler()), ('model', Ridge(alpha=10))])",
+    "random_forest": "Pipeline(steps=[('preprocess',\n                 ColumnTransformer(transformers=[('numeric',\n                                                  SimpleImputer(keep_empty_features=True,\n                                                                strategy='median'),\n                                                  ['FYEAR', 'SM_WHC', 'tavg_04',\n                                                   'tmax_04', 'tmin_04',\n                                                   'prec_04', 'et0_04',\n                                                   'balance_04', 'tavg_05',\n                                                   'tmax_05', 'tmin_05',\n                                                   'prec_05', 'et0_05',\n                                                   'balance_05', 'tavg_06',\n                                                   'tmax_06', 'tmin_06',\n                                                   'prec_06', 'et0_06',\n                                                   'balance_06', 'tavg_07',\n                                                   'tmax_07', 'tmin_07',\n                                                   'prec_07', 'et0_07',\n                                                   'balance_07']),\n                                                 ('state',\n                                                  OneHotEncoder(handle_unknown='ignore',\n                                                                sparse_output=False),\n                                                  ['STATE'])],\n                                   verbose_feature_names_out=False)),\n                ('model',\n                 RandomForestRegressor(max_depth=12, max_features=0.8,\n                                       min_samples_leaf=4, n_estimators=160,\n                                       n_jobs=2, random_state=42))])",
+    "xgboost": "Pipeline(steps=[('preprocess',\n                 ColumnTransformer(transformers=[('numeric',\n                                                  SimpleImputer(keep_empty_features=True,\n                                                                strategy='median'),\n                                                  ['FYEAR', 'SM_WHC', 'tavg_04',\n                                                   'tmax_04', 'tmin_04',\n                                                   'prec_04', 'et0_04',\n                                                   'balance_04', 'tavg_05',\n                                                   'tmax_05', 'tmin_05',\n                                                   'prec_05', 'et0_05',\n                                                   'balance_05', 'tavg_06',\n                                                   'tmax_06', 'tmin_06',\n                                                   'prec_06', 'et0_06',\n                                                   'balance_06', 'tavg_07',\n                                                   'tmax...\n                              feature_types=None, feature_weights=None,\n                              gamma=None, grow_policy=None,\n                              importance_type=None,\n                              interaction_constraints=None, learning_rate=0.05,\n                              max_bin=None, max_cat_threshold=None,\n                              max_cat_to_onehot=None, max_delta_step=None,\n                              max_depth=4, max_leaves=None, min_child_weight=5,\n                              missing=nan, monotone_constraints=None,\n                              multi_strategy=None, n_estimators=240, n_jobs=2,\n                              num_parallel_tree=None, ...))])"
+  },
+  "warning": "Retrospective development diagnostics; test results were already inspected. No new untouched test, model reselection, causal claim or Moroccan transfer validation."
+}

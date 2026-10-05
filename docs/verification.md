@@ -26,3 +26,7 @@ Non-blocking warning: installed Starlette deprecates the current httpx TestClien
 - CV, personal mastery, academic eligibility, field performance, Moroccan transfer and current operational forecasting are not verified.
 
 Source archive and Git repository are available locally and publicly. No profile pin or production deployment is claimed. The publication script is for initial creation only; the existing origin must be used for subsequent pushes.
+
+## 5 October 2026 development extension
+
+The real-data `backtest` command completed on all six development folds. Original model and final-test reports were not regenerated. Local pytest: 40 passed, including seven new chronology/holdout contracts; warnings concern the existing Starlette test client and Windows temporary-folder cleanup. New GitHub CI evidence is recorded externally after the pushed commit completes.
