@@ -22,10 +22,10 @@
 - [x] Evidence: `src/crop_yield/reporting.py`. Save validation/test metrics, held-out predictions, data audit, configuration, hashes, environment versions, plots and SHAP attribution. `python -m crop_yield.cli train`. Inspect residuals and test-year deterioration; no performance guarantee.
 - [x] Inference: `src/crop_yield/predict.py`, `app/api.py`, `app/index.html`, `predict_rows(artifact, rows) -> list[dict]`. Validate exact schema, year/state, finite values and temperature ordering. `pytest -q` covers 422 inputs, 503 missing model and valid real artifact inference.
 - [x] Documentation: README generated from executed results; data README, model card, French learning/interview guides, one compact executed notebook; Dockerfile and GitHub Actions. Check every local README link exists and notebook has no error output.
-- [ ] Release: Ruff, pytest, pip check, executed notebook, real HTTP prediction, fresh git clone in clean venv with exact requirements and full pipeline. Commit only reviewed deliverables. Create repo/description/topics and real improvement issues if authenticated publication is available; otherwise deliver verified archive and explain the precise access blocker.
+- [x] Release: Ruff, pytest, pip check, executed notebook, real HTTP prediction, fresh git clone in clean venv with exact requirements and full pipeline. Commit only reviewed deliverables. Create repo/description/topics and real improvement issues if authenticated publication is available; otherwise deliver verified archive and explain the precise access blocker.
 
 Commands are exposed through the CLI; detailed interfaces and invariants live alongside tests rather than duplicating all source in this plan.
 
 ## Final status
 
-All local deliverables and checks completed. Publication and remote CI remain blocked by GitHub authentication; release is not marked complete. Docker unavailable. See verification.md.
+Local deliverables, public repository, topics, three real issues and remote CI completed. Docker remains unavailable and unverified. See verification.md.

@@ -1,6 +1,6 @@
-# Prepared research issues
+# Open research issues
 
-These are genuine unfinished tasks, ready to create after publication. No closed issue or completed work is implied.
+Three genuine unfinished tasks were created as [issues 1–3](https://github.com/idrisslemnouni-crypto/crop-yield-prediction/issues). None has been closed or represented as completed. Remote CI now passes; the third live issue concerns the container alone.
 
 ## 1. Add forward-chaining validation and an untouched test period
 

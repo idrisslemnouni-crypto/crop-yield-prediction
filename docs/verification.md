@@ -19,10 +19,10 @@ The code is reproducible, but the selected model fails to generalize adequately:
 
 Non-blocking warning: installed Starlette deprecates the current httpx TestClient transport in favor of httpx2. Tests pass in both environments. Windows pytest temporary-directory cleanup warnings appeared in one local repeat; no project test failed. No warning is treated as a passed remote or operational check.
 
-## Not verified / not completed
+## Publication and remaining limits
 
 - Docker executable unavailable; container build/run not verified.
-- GitHub CLI has no authenticated host; in-app GitHub browser shows login; the connector returns no accessible repositories and provides no repository-creation tool. **New repository not published.** No remote Actions run, topics, pinned repository or GitHub issue is claimed.
+- Repository published publicly at [idrisslemnouni-crypto/crop-yield-prediction](https://github.com/idrisslemnouni-crypto/crop-yield-prediction), default branch main, with six relevant topics. [GitHub Actions run 37248712740](https://github.com/idrisslemnouni-crypto/crop-yield-prediction/actions/runs/37248712740) succeeded: lint, formatting, dependency check, notebook validation, and 32 tests passed / 1 real-artifact test skipped because the artifact is not committed. The full 33-test check and training were verified locally from a clean clone. Three genuine research/container issues are open; no unfinished issue was closed.
 - CV, personal mastery, academic eligibility, field performance, Moroccan transfer and current operational forecasting are not verified.
 
-Source archive and Git repository are ready locally. scripts/publish.ps1 checks the authenticated owner and clean repository before creating/pushing the intended public repository. Prepared genuine future issues are listed in docs/github-issues.md.
+Source archive and Git repository are available locally and publicly. No profile pin or production deployment is claimed. The publication script is for initial creation only; the existing origin must be used for subsequent pushes.

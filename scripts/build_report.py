@@ -119,7 +119,7 @@ python scripts/check_notebooks.py
 python -m uvicorn app.api:app --host 127.0.0.1 --port 8000
 ```
 
-The GitHub clone URL is the intended publication target; until the repository is published, use the supplied source archive. Training downloads the official dataset (or checks the cached archive), produces `models/model.joblib` and all reports. Internet access is required for the initial data/dependency download. Training uses two CPU workers; no GPU needed.
+The repository is public; the supplied source archive is an alternative. Training downloads the official dataset (or checks the cached archive), produces `models/model.joblib` and all reports. Internet access is required for the initial data/dependency download. Training uses two CPU workers; no GPU needed.
 
 Open `http://127.0.0.1:8000`, load a real example, then run prediction. Interactive API schema: `http://127.0.0.1:8000/docs`. `GET /health` returns 503 before the trusted model exists. `POST /predict` accepts `{{"rows": [feature_row]}}`, rejects invalid fields, unknown counties, inconsistent balances and unsupported states/years. The historical interface intentionally refuses 2026 forecasts. It is an engineering demo, not an irrigation recommendation.
 
@@ -149,12 +149,12 @@ tests/                       data, leakage, model and API contracts
 notebooks/01_analysis.ipynb   executed compact analysis
 reports/                     actual metrics, predictions and figures
 docs/                        design, learning guide, interview notes
-.github/workflows/ci.yml      lint and tests; remote status not yet verified
+.github/workflows/ci.yml      verified remote lint and unit tests
 ```
 
 ## Technologies
 
-Python, pandas, NumPy, scikit-learn, XGBoost, SHAP, matplotlib, FastAPI/Pydantic, pytest, Ruff, Git and GitHub Actions configuration. Docker is optional configuration; no cloud deployment or successful remote CI run is claimed.
+Python, pandas, NumPy, scikit-learn, XGBoost, SHAP, matplotlib, FastAPI/Pydantic, pytest, Ruff, Git and GitHub Actions. [Remote CI passed](https://github.com/idrisslemnouni-crypto/crop-yield-prediction/actions/runs/37248712740): 32 unit tests passed, one real-artifact test skipped because the model is deliberately not committed. All 33 tests and the full real-data pipeline passed locally. Docker remains unverified optional configuration; no cloud deployment is claimed.
 
 ## Limitations
 
