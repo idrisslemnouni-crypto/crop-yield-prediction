@@ -123,6 +123,8 @@ The GitHub clone URL is the intended publication target; until the repository is
 
 Open `http://127.0.0.1:8000`, load a real example, then run prediction. Interactive API schema: `http://127.0.0.1:8000/docs`. `GET /health` returns 503 before the trusted model exists. `POST /predict` accepts `{{"rows": [feature_row]}}`, rejects invalid fields, unknown counties, inconsistent balances and unsupported states/years. The historical interface intentionally refuses 2026 forecasts. It is an engineering demo, not an irrigation recommendation.
 
+![Verified local application and real prediction](reports/figures/app-demo.jpg)
+
 Optional container (Dockerfile provided; container build not verified in this environment):
 
 ```bash
