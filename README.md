@@ -166,7 +166,7 @@ Negative final-test R²; chronology drift; county-level aggregation; biased cove
 
 Forward-chaining development diagnostics and a [training-only trend/residual experiment](docs/residual-learning.md) are implemented. The latter yields development RMSE **31.997 bushels/acre**, worse than the saved raw-yield XGBoost baseline (**28.432**); it is not promoted and the original final-test evidence/model remain intact. Run `python -m crop_yield.cli residual-backtest` to reproduce six new folds without overwriting the prior baseline reports.
 
-Next: audit and lock a **new untouched** future/geographic dataset and compatible feature protocol before making improved generalization claims. Add explicit forecast-vintage and station/field validation; document soil units; investigate sample coverage; evaluate calibration and spatial transfer. These remain future tasks.
+The [independent-data audit and frozen protocol](docs/future-evaluation.md) now reserve 2024–2025 USDA NASS county yields, with predictor/identity gates before target access. No new target dataset or evaluation score is available. Incidental 2023 snippet exposure is recorded. Next: metadata/count checks and historical predictor-equivalence verification, then independent scoring under the frozen protocol. Forecast-vintage, station/field validation, soil units and calibrated uncertainty remain unresolved.
 
 ## Learning, interview and AI transparency
 

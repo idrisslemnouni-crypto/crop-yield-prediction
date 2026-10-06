@@ -29,4 +29,4 @@ Missing model: HTTP 503. Invalid/extra fields, unsupported state/year, unknown c
 
 ## Future evaluation
 
-Do not retune against the already-inspected 2016–2018 test and call it independent. Define forward-chaining development folds, introduce training-only detrending if justified, and evaluate against new untouched years or territories. Then reassess operational vintages, geographic transfer and calibration.
+Do not retune against the already-inspected 2016–2018 test and call it independent. Forward-chaining development folds and training-only residual learning are now executed: the residual model was worse than raw-yield XGBoost and was not promoted. The [independent-data audit](future-evaluation.md) and [frozen protocol](../configs/future-evaluation.json) reserve 2024–2025; compatibility/access gates remain unresolved and no new score is available. Incidental 2023 target exposure is recorded. Operational vintages, geographic transfer and calibration still require validation.

@@ -1,5 +1,7 @@
 # Verification — 5 October 2026
 
+Subsequent delivery, 6 October 2026: six expanding development folds and a separate training-only residual experiment, 51 local tests / 50 CI tests plus one absent-artifact skip at `e9cddca`, original reports/model preserved. A further metadata-only future-data audit adds a frozen 2024–2025 protocol without new target retrieval, training or score claims. Earlier counts below describe the original release checkpoint.
+
 ## Verified locally
 
 - Official archive downloaded, exact byte count and official MD5 matched; three source CSVs extracted. Source SHA-256 hashes recorded in reports/metrics.json.

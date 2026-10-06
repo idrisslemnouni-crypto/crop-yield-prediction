@@ -1,0 +1,50 @@
+{
+  "protocol_version": 1,
+  "frozen_on": "2026-10-06",
+  "status": "metadata_audit_only_no_new_evaluation",
+  "reserved_target_years": [2024, 2025],
+  "previously_inspected_source_years": [1994, 2018],
+  "incidental_target_exposure": {
+    "year": 2023,
+    "states": ["IA", "MN", "WI"],
+    "cause": "Yield values unexpectedly appeared in metadata-search snippets; do not describe 2023 as untouched."
+  },
+  "states": ["IA", "IL", "IN", "OH", "MN", "WI", "MI", "MO"],
+  "target": {
+    "source": "USDA NASS Quick Stats",
+    "metadata_url": "https://quickstats.nass.usda.gov/api",
+    "licence_metadata_url": "https://catalog.data.gov/dataset/quick-stats-agricultural-database",
+    "licence": "CC0 as declared by federal catalogue",
+    "grain": "county-year",
+    "commodity_desc": "CORN",
+    "statisticcat_desc": "YIELD",
+    "unit_desc": "BU / ACRE",
+    "util_practice_desc": "GRAIN",
+    "source_desc": "SURVEY",
+    "agg_level_desc": "COUNTY",
+    "freq_desc": "ANNUAL",
+    "domain_desc": "TOTAL",
+    "prodn_practice_desc": "ALL PRODUCTION PRACTICES",
+    "suppression_policy": "Exclude documented non-numeric/suppressed values and retain counts; no target imputation.",
+    "identity": "Preserve two-digit state_ansi and three-digit county_ansi as strings; verify an explicit crosswalk to original COUNTY_ID."
+  },
+  "training_years": [2000, 2015],
+  "prespecified_models": ["original_validation_selected_xgboost", "county_trend_fitted_on_2000_2015"],
+  "excluded_candidate": "Trend/residual learner is not promoted after its negative development comparison.",
+  "feature_months": [4, 5, 6, 7],
+  "cutoff": "July 31, calendar dekad 21",
+  "predictor_candidate_url": "https://cds.climate.copernicus.eu/datasets/sis-agrometeorological-indicators?tab=overview",
+  "soil_policy": "Reuse original SM_WHC numeric scale only for counties with a verified crosswalk; unit remains undocumented.",
+  "gates_before_target_access": [
+    "Confirm 2024 and 2025 county-year availability using metadata/count endpoints without retrieving target values.",
+    "Verify and freeze county crosswalk and eligibility using identifiers and historical data only.",
+    "Establish AgERA5 version, county aggregation, extrema and dekadal accumulation equivalence on overlapping historical data.",
+    "Freeze predictor extraction and missingness rules before joining targets; no future-year preprocessing fit.",
+    "Persist exact training artifact/source hashes and prediction-only files before one-time target scoring."
+  ],
+  "metrics": ["annual_rmse", "annual_mae", "pooled_rmse", "pooled_mae", "pooled_r2", "county_year_coverage", "exclusion_counts"],
+  "selection_policy": "No model reselection or tuning from reserved evaluation results.",
+  "scope": "Retrospective reanalysis-based county transfer; operational vintage availability, Morocco and field validity remain unverified.",
+  "target_files_downloaded": false,
+  "new_scores_available": false
+}
