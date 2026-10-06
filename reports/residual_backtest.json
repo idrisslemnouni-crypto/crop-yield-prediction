@@ -1,0 +1,138 @@
+{
+  "protocol": "expanding_window_development_only",
+  "development_years": [
+    2000,
+    2015
+  ],
+  "excluded_final_test_years": [
+    2016,
+    2018
+  ],
+  "development_sha256": "d4bde1620be91bac8195bcf9e139986e60df87edb3d1a0524018e465b0e537c9",
+  "features": [
+    "FYEAR",
+    "SM_WHC",
+    "tavg_04",
+    "tmax_04",
+    "tmin_04",
+    "prec_04",
+    "et0_04",
+    "balance_04",
+    "tavg_05",
+    "tmax_05",
+    "tmin_05",
+    "prec_05",
+    "et0_05",
+    "balance_05",
+    "tavg_06",
+    "tmax_06",
+    "tmin_06",
+    "prec_06",
+    "et0_06",
+    "balance_06",
+    "tavg_07",
+    "tmax_07",
+    "tmin_07",
+    "prec_07",
+    "et0_07",
+    "balance_07",
+    "STATE"
+  ],
+  "seed": 42,
+  "folds": [
+    {
+      "model": "trend_residual_xgboost",
+      "validation_year": 2010,
+      "train_start": 2000,
+      "train_end": 2009,
+      "train_rows": 5199,
+      "validation_rows": 519,
+      "rmse": 22.46922793212102,
+      "mae": 16.865579488002403,
+      "r2": 0.1703432039275815
+    },
+    {
+      "model": "trend_residual_xgboost",
+      "validation_year": 2011,
+      "train_start": 2000,
+      "train_end": 2010,
+      "train_rows": 5718,
+      "validation_rows": 492,
+      "rmse": 18.029961279594175,
+      "mae": 13.711714467102382,
+      "r2": 0.5026290324150509
+    },
+    {
+      "model": "trend_residual_xgboost",
+      "validation_year": 2012,
+      "train_start": 2000,
+      "train_end": 2011,
+      "train_rows": 6210,
+      "validation_rows": 500,
+      "rmse": 54.46265454240893,
+      "mae": 47.575436445768965,
+      "r2": -1.041044660853109
+    },
+    {
+      "model": "trend_residual_xgboost",
+      "validation_year": 2013,
+      "train_start": 2000,
+      "train_end": 2012,
+      "train_rows": 6710,
+      "validation_rows": 476,
+      "rmse": 30.93512745703329,
+      "mae": 25.036458139492996,
+      "r2": -0.8627153127070972
+    },
+    {
+      "model": "trend_residual_xgboost",
+      "validation_year": 2014,
+      "train_start": 2000,
+      "train_end": 2013,
+      "train_rows": 7186,
+      "validation_rows": 483,
+      "rmse": 26.05419110241188,
+      "mae": 20.487317120564775,
+      "r2": -0.7768384793735705
+    },
+    {
+      "model": "trend_residual_xgboost",
+      "validation_year": 2015,
+      "train_start": 2000,
+      "train_end": 2014,
+      "train_rows": 7669,
+      "validation_rows": 464,
+      "rmse": 26.06879156938686,
+      "mae": 19.81267741585657,
+      "r2": -0.0030321684196978893
+    }
+  ],
+  "pooled": {
+    "trend_residual_xgboost": {
+      "rmse": 31.996586235717274,
+      "mae": 23.958053190034427,
+      "r2": 0.15764853871920892
+    }
+  },
+  "parameters": {
+    "trend_residual_xgboost": "TrendResidualRegressor(residual_estimator=Pipeline(steps=[('preprocess',\n                                                           ColumnTransformer(transformers=[('numeric',\n                                                                                            SimpleImputer(keep_empty_features=True,\n                                                                                                          strategy='median'),\n                                                                                            ['FYEAR',\n                                                                                             'SM_WHC',\n                                                                                             'tavg_04',\n                                                                                             'tmax_04',\n                                                                                             'tmin_04',\n                                                                                             'prec_04',\n                                                                                             'et0_04',\n                                                                                             'balance_04',\n                                                                                             'tavg_05',\n                                                                                             'tmax_05',\n                                                                                             'tmin_05',\n                                                                                             'prec_05',\n                                                                                             'et0_05',\n                                                                                             'balance_05',\n                                                                                             'tavg_06',\n                                                                                             'tmax_06',\n                                                                                             'tmin_06',\n                                                                                             'prec...\n                                                                        feature_weights=None,\n                                                                        gamma=None,\n                                                                        grow_policy=None,\n                                                                        importance_type=None,\n                                                                        interaction_constraints=None,\n                                                                        learning_rate=0.05,\n                                                                        max_bin=None,\n                                                                        max_cat_threshold=None,\n                                                                        max_cat_to_onehot=None,\n                                                                        max_delta_step=None,\n                                                                        max_depth=4,\n                                                                        max_leaves=None,\n                                                                        min_child_weight=5,\n                                                                        missing=nan,\n                                                                        monotone_constraints=None,\n                                                                        multi_strategy=None,\n                                                                        n_estimators=240,\n                                                                        n_jobs=2,\n                                                                        num_parallel_tree=None, ...))]))"
+  },
+  "warning": "Retrospective development diagnostics; test results were already inspected. No new untouched test, model reselection, causal claim or Moroccan transfer validation.",
+  "residual_training": "in_sample_training_labels_only; trend fitted separately on each past fold",
+  "reused_baselines": {
+    "predictions_sha256": "1e261cbc4f3a33c9e78bc7928370483d81e1bc971f717a6c5d1bbe97a2aca8fd",
+    "report_sha256": "aa01c3a883dbb12afada22f39f8fbf4b130ca50fcde3d0cb36ea43608479a893",
+    "pooled": {
+      "county_trend": {
+        "rmse": 34.742765914257106,
+        "mae": 26.19727862809768,
+        "r2": 0.006850053601979655
+      },
+      "xgboost": {
+        "rmse": 28.432469169893448,
+        "mae": 21.81949259232077,
+        "r2": 0.3348567365941362
+      }
+    }
+  }
+}

@@ -14,7 +14,9 @@ from crop_yield.predict import predict_file
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["download", "train", "backtest", "predict"])
+    parser.add_argument(
+        "command", choices=["download", "train", "backtest", "residual-backtest", "predict"]
+    )
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--config", type=Path)
     parser.add_argument("--input", type=Path)
@@ -29,10 +31,12 @@ def main():
         print(json.dumps(predict_file(root / "models" / "model.joblib", args.input), indent=2))
         return
     raw = download_data(root / "data" / "raw")
-    if args.command in {"train", "backtest"}:
+    if args.command in {"train", "backtest", "residual-backtest"}:
         table, audit = build_table(raw, config)
-        if args.command == "backtest":
-            result = run_backtesting(table, config, root)
+        if args.command in {"backtest", "residual-backtest"}:
+            result = run_backtesting(
+                table, config, root, residual_only=args.command == "residual-backtest"
+            )
             print(json.dumps(result["pooled"], indent=2))
             return
         processed = root / "data" / "processed"

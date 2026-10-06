@@ -145,7 +145,7 @@ src/crop_yield/features.py    cutoff, validation, feature joins
 src/crop_yield/modeling.py    baselines, selection, training
 src/crop_yield/reporting.py   plots, SHAP, actual evidence
 src/crop_yield/predict.py     inference contracts
-src/crop_yield/cli.py         download / train / backtest / predict
+src/crop_yield/cli.py         download / train / backtest / residual-backtest / predict
 app/                         FastAPI, JSON demo, OpenAPI docs
 tests/                       data, leakage, model and API contracts
 notebooks/01_analysis.ipynb   executed compact analysis
@@ -156,7 +156,7 @@ docs/                        design, learning guide, interview notes
 
 ## Technologies
 
-Python, pandas, NumPy, scikit-learn, XGBoost, SHAP, matplotlib, FastAPI/Pydantic, pytest, Ruff, Git and GitHub Actions. [Remote CI passed](https://github.com/idrisslemnouni-crypto/crop-yield-prediction/actions/runs/37248712740): 32 unit tests passed, one real-artifact test skipped because the model is deliberately not committed. All 33 tests and the full real-data pipeline passed locally. Docker remains unverified optional configuration; no cloud deployment is claimed.
+Python, pandas, NumPy, scikit-learn, XGBoost, SHAP, matplotlib, FastAPI/Pydantic, pytest, Ruff, Git and GitHub Actions. [GitHub CI](https://github.com/idrisslemnouni-crypto/crop-yield-prediction/actions/workflows/ci.yml) checks pinned dependencies, lint, formatting, unit tests and notebook validity. The current local suite passes 51 tests; the real-artifact test is skipped in CI when the deliberately uncommitted model is absent. The original full real-data pipeline and the six-fold residual experiment were executed locally. Docker remains unverified optional configuration; no cloud deployment is claimed.
 
 ## Limitations
 
@@ -164,7 +164,9 @@ Negative final-test R²; chronology drift; county-level aggregation; biased cove
 
 ## Improvements
 
-Forward-chaining development diagnostics are now implemented; lock a **new untouched** future/geographic test period before making improved generalization claims. Detrend yields with training-only historical county trends and test residual learning. Add explicit forecast-vintage and station/field validation; document soil units; investigate sample coverage; evaluate calibration and spatial transfer. These are future tasks, not completed results.
+Forward-chaining development diagnostics and a [training-only trend/residual experiment](docs/residual-learning.md) are implemented. The latter yields development RMSE **31.997 bushels/acre**, worse than the saved raw-yield XGBoost baseline (**28.432**); it is not promoted and the original final-test evidence/model remain intact. Run `python -m crop_yield.cli residual-backtest` to reproduce six new folds without overwriting the prior baseline reports.
+
+Next: audit and lock a **new untouched** future/geographic dataset and compatible feature protocol before making improved generalization claims. Add explicit forecast-vintage and station/field validation; document soil units; investigate sample coverage; evaluate calibration and spatial transfer. These remain future tasks.
 
 ## Learning, interview and AI transparency
 

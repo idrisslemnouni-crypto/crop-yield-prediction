@@ -11,7 +11,7 @@ from pathlib import Path
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.base import BaseEstimator, RegressorMixin
+from sklearn.base import BaseEstimator, RegressorMixin, clone
 from sklearn.compose import ColumnTransformer
 from sklearn.dummy import DummyRegressor
 from sklearn.ensemble import RandomForestRegressor
@@ -19,6 +19,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_absolute_error, r2_score, root_mean_squared_error
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.utils.validation import check_is_fitted
 from xgboost import XGBRegressor
 
 from crop_yield.data import FILES, file_hash
@@ -52,6 +53,23 @@ class CountyTrend(RegressorMixin, BaseEstimator):
                 for county, year in zip(X.COUNTY_ID, X.FYEAR, strict=True)
             ]
         )
+
+
+class TrendResidualRegressor(RegressorMixin, BaseEstimator):
+    """Extrapolate past county trends and learn training residuals with a fresh estimator."""
+
+    def __init__(self, residual_estimator):
+        self.residual_estimator = residual_estimator
+
+    def fit(self, X: pd.DataFrame, y: pd.Series):
+        self.trend_ = CountyTrend().fit(X, y)
+        residuals = np.asarray(y) - self.trend_.predict(X)
+        self.residual_estimator_ = clone(self.residual_estimator).fit(X, residuals)
+        return self
+
+    def predict(self, X: pd.DataFrame) -> np.ndarray:
+        check_is_fitted(self, ["trend_", "residual_estimator_"])
+        return self.trend_.predict(X) + self.residual_estimator_.predict(X)
 
 
 def metrics(y: pd.Series, pred: np.ndarray) -> dict[str, float]:
