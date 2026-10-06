@@ -68,7 +68,9 @@ def run_backtesting(
     # Final-test NaNs can upcast the whole label column without changing development values.
     development["YIELD"] = development.YIELD.astype(float)
     # Match the historical Windows-produced digest explicitly on every operating system.
-    digest = hashlib.sha256(development.to_csv(index=False, lineterminator="\r\n").encode()).hexdigest()
+    digest = hashlib.sha256(
+        development.to_csv(index=False, lineterminator="\r\n").encode()
+    ).hexdigest()
     reports = root / "reports"
     reference = None
     if residual_only:
