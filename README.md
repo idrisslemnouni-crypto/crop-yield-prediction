@@ -92,6 +92,23 @@ These are pooled errors from actual out-of-year predictions, not averages of ann
 
 Run `python -m crop_yield.cli backtest`. See [protocol and interpretation](docs/backtesting.md), [fold metrics and data hash](reports/development_backtest.json) and [development predictions](reports/development_predictions.csv). This command writes separate development reports and never replaces the model or final-test artifacts.
 
+## County identity audit: Python, Jupyter, R and HTML
+
+The historical training subset contains **528 counties and 8,133 observations (2000–2015)**. All 528 names have one candidate match in a checksum-pinned U.S. Census county-code reference. Codes remain strings, including leading zeros; normalization collisions and missing matches receive explicit statuses. This is a candidate correspondence, **not verified USDA NASS identity, boundary continuity or 2024–2025 target coverage**. The frozen future-evaluation protocol is unchanged and no reserved targets or new scores were obtained.
+
+[Executed identity notebook](notebooks/02_county_identity.ipynb) · [Offline searchable HTML report](reports/county-identity.html) · [CSV crosswalk](reports/county-identity-crosswalk.csv) · [Method, provenance and limits](docs/county-identity.md). Download the HTML file and open it locally; GitHub's file view displays its source. An independent base-R script checks the published geographic codes and state counts in the `identity-r` CI job. R is unavailable locally; remote execution evidence is recorded only after the workflow runs.
+
+With the pinned historical source CSVs cached by `download`, run:
+
+```bash
+python -m crop_yield.cli download
+python -m crop_yield.cli identity-audit
+# Optional, when R is installed:
+Rscript scripts/check_county_identity.R
+```
+
+The audit writes separate identity reports and downloads only the small official county-code reference. It does not train or replace any model or previous scientific report. USDA count access and historical predictor equivalence remain next steps before target access.
+
 ## Explainability
 
 ![XGBoost SHAP attribution](reports/figures/shap-importance.png)
@@ -145,10 +162,13 @@ src/crop_yield/features.py    cutoff, validation, feature joins
 src/crop_yield/modeling.py    baselines, selection, training
 src/crop_yield/reporting.py   plots, SHAP, actual evidence
 src/crop_yield/predict.py     inference contracts
-src/crop_yield/cli.py         download / train / backtest / residual-backtest / predict
+src/crop_yield/identity.py    conservative county-code audit and source checks
+src/crop_yield/cli.py         download / train / backtest / residual-backtest / identity-audit / predict
 app/                         FastAPI, JSON demo, OpenAPI docs
 tests/                       data, leakage, model and API contracts
 notebooks/01_analysis.ipynb   executed compact analysis
+notebooks/02_county_identity.ipynb executed candidate-identity audit
+scripts/check_county_identity.R independent descriptive code/count check
 reports/                     actual metrics, predictions and figures
 docs/                        design, learning guide, interview notes
 .github/workflows/ci.yml      verified remote lint and unit tests
@@ -156,7 +176,7 @@ docs/                        design, learning guide, interview notes
 
 ## Technologies
 
-Python, pandas, NumPy, scikit-learn, XGBoost, SHAP, matplotlib, FastAPI/Pydantic, pytest, Ruff, Git and GitHub Actions. [GitHub CI](https://github.com/idrisslemnouni-crypto/crop-yield-prediction/actions/workflows/ci.yml) checks pinned dependencies, lint, formatting, unit tests and notebook validity. The current local suite passes 51 tests; the real-artifact test is skipped in CI when the deliberately uncommitted model is absent. The original full real-data pipeline and the six-fold residual experiment were executed locally. Docker remains unverified optional configuration; no cloud deployment is claimed.
+Python, Jupyter, base R, HTML/CSS/JavaScript, pandas, NumPy, scikit-learn, XGBoost, SHAP, matplotlib, FastAPI/Pydantic, pytest, Ruff, Git and GitHub Actions. [GitHub CI](https://github.com/idrisslemnouni-crypto/crop-yield-prediction/actions/workflows/ci.yml) checks pinned dependencies, lint, formatting, unit tests, notebook validity and the independent R identity check. The current local suite passes 67 tests; the real-artifact test is skipped in CI when the deliberately uncommitted model is absent. The original full real-data pipeline and the six-fold residual experiment were executed locally. Docker remains unverified optional configuration; no cloud deployment is claimed.
 
 ## Limitations
 
@@ -174,4 +194,4 @@ The [independent-data audit and frozen protocol](docs/future-evaluation.md) now 
 
 Implementation and documentation were produced with substantial AI assistance. Results come from executed public-data code. This repository does not imply independent mastery, professional employment, a client engagement, or reproduction of the source paper's results. Read the code and explain the split, baseline and failed generalization before presenting it in an interview.
 
-Code: MIT. Source data and derived tables: CC BY 4.0 with the attribution above.
+Code: MIT. Historical source data and its derived tables: CC BY 4.0 with the attribution above. The Census geographic reference is a separately attributed U.S. government source; see [data usage](data/README.md). Its usage terms are not relabelled as the historical dataset's license.

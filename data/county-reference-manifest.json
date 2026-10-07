@@ -1,0 +1,15 @@
+{
+  "url": "https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt",
+  "metadata_url": "https://www.census.gov/library/reference/code-lists/ansi.html",
+  "file": "national_county2020.txt",
+  "accessed_at_utc": "2026-10-07T10:34:22.746938+00:00",
+  "sha256": "9f6e5f6eb6ac2f5e9a36d5fd01dec77991bddc75118f748a069441a4782970d6",
+  "bytes": 126639,
+  "rows": 3235,
+  "vintage_notice": "codes2020 URL directory; exact downloaded bytes pinned. Do not infer unchanged 2000-2025 boundaries from this reference.",
+  "usage": "US Census Bureau geographic code reference; public US government data, distinct from the CC BY 4.0 historical input and MIT code.",
+  "http_metadata": {
+    "last_modified": "Mon, 13 Feb 2023 20:11:55 GMT",
+    "content_type": "text/plain"
+  }
+}

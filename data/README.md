@@ -1,5 +1,13 @@
 # Data provenance and usage
 
+## Separate geographic reference, added 7 October 2026
+
+The identity audit uses the [U.S. Census Bureau national county-code reference](https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt), separately from the historical CC BY 4.0 dataset below. Exact URL, access date, byte count and SHA-256 are pinned in `county-reference-manifest.json`; raw bytes remain ignored. Attribute the Census source following its [citation/public-use guidance](https://www.census.gov/about/policies/citation.html). This U.S. government reference is not relabelled CC BY or blanket worldwide CC0. Retain both historical-source and Census attribution for the derived candidate crosswalk.
+
+Only historical training identifiers enter the published crosswalk. A unique Census name/code correspondence does not verify NASS identity, boundary continuity or usable future-yield coverage. See [method and remaining gates](../docs/county-identity.md). No reserved future targets are downloaded by this audit.
+
+## Historical scientific source
+
 Source: Paudel, Dilli; de Wit, Allard; Boogaard, Hendrik. *Sample data for A weakly supervised framework for high resolution crop yield forecasts*, version 1.0. [Zenodo record](https://zenodo.org/records/7751191), [DOI](https://doi.org/10.5281/zenodo.7751191). Dataset metadata declares **CC BY 4.0**; this is separate from the MIT code license. Attribution and these provenance links must accompany derived data. No original collection or contribution to this dataset is claimed.
 
 Download: `https://zenodo.org/records/7751191/files/county-data.zip?download=1`. Exact archive size: 50,051,357 bytes. Official MD5: `b7cf000262da294caffc2fea39932246`. The downloader verifies both before extracting only three fixed archive entries; raw files remain ignored by Git. SHA-256 hashes of extracted files are recorded in `reports/metrics.json`.

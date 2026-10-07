@@ -1,4 +1,13 @@
-# Verification — 5 October 2026
+# Verification — checkpoints from 5 October 2026
+
+## 7 October 2026 identity-audit checkpoint
+
+- Actual audit: 528 unique candidate Census matches for 528 training counties, 8,133 historical observations; zero unmatched/ambiguous rows. Historical source hashes/configuration/data audit matched the existing evidence.
+- Complete local pytest: **67 passed**, with the existing Starlette/httpx deprecation warning. Ruff lint and formatting passed. Both notebooks passed structural/error-output checks; all three code cells of the new identity notebook were executed in the pinned scientific environment.
+- HTML inspected in the browser, including code leading zeros, a single-county search, no-match search and restoration of all 528 rows. The small viewport retains horizontal scrolling within the table.
+- Original model SHA-256 remains `7fa8f8b1a4818d8740e5431dc70539ea6b828b81e771374ae1dc4a73980a3c2d`; original metrics, development/residual/final-test reports and frozen future-evaluation configuration remain unchanged.
+- R is absent locally. The new `identity-r` job independently validates the published CSVs using base R; its actual result and exact commit are recorded in external delivery evidence after the workflow runs. This document does not claim a local R execution.
+- No NASS count call, reserved target retrieval, new training, new score or boundary-equivalence proof. Those limits are explicit in the report and [audit method](county-identity.md).
 
 Subsequent delivery, 6 October 2026: six expanding development folds and a separate training-only residual experiment, 51 local tests / 50 CI tests plus one absent-artifact skip at `e9cddca`, original reports/model preserved. A further metadata-only future-data audit adds a frozen 2024–2025 protocol without new target retrieval, training or score claims. Earlier counts below describe the original release checkpoint.
 

@@ -15,7 +15,8 @@ from crop_yield.predict import predict_file
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "command", choices=["download", "train", "backtest", "residual-backtest", "predict"]
+        "command",
+        choices=["download", "train", "backtest", "residual-backtest", "predict", "identity-audit"],
     )
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--config", type=Path)
@@ -23,6 +24,11 @@ def main():
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     root = args.root.resolve()
+    if args.command == "identity-audit":
+        from crop_yield.identity import run_identity
+
+        print(json.dumps(run_identity(root), indent=2))
+        return
     config_path = args.config or root / "configs" / "default.json"
     config = json.loads(config_path.read_text(encoding="utf-8"))
     if args.command == "predict":

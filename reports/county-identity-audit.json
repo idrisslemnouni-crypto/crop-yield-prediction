@@ -1,0 +1,67 @@
+{
+  "protocol": "county_identity_candidates_v1",
+  "training_years": [
+    2000,
+    2015
+  ],
+  "training_rows": 8133,
+  "training_counties": 528,
+  "matched_counties": 528,
+  "unmatched_counties": 0,
+  "ambiguous_counties": 0,
+  "by_state": [
+    {
+      "state": "IA",
+      "training_counties": 96,
+      "matched_counties": 96
+    },
+    {
+      "state": "IL",
+      "training_counties": 98,
+      "matched_counties": 98
+    },
+    {
+      "state": "IN",
+      "training_counties": 88,
+      "matched_counties": 88
+    },
+    {
+      "state": "MI",
+      "training_counties": 38,
+      "matched_counties": 38
+    },
+    {
+      "state": "MN",
+      "training_counties": 17,
+      "matched_counties": 17
+    },
+    {
+      "state": "MO",
+      "training_counties": 76,
+      "matched_counties": 76
+    },
+    {
+      "state": "OH",
+      "training_counties": 74,
+      "matched_counties": 74
+    },
+    {
+      "state": "WI",
+      "training_counties": 41,
+      "matched_counties": 41
+    }
+  ],
+  "reference_url": "https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt",
+  "reference_sha256": "9f6e5f6eb6ac2f5e9a36d5fd01dec77991bddc75118f748a069441a4782970d6",
+  "historical_source_sha256": {
+    "YIELD_COUNTY_US.csv": "20bed8fee96e614ea7f254d1140f401c77fd16d08eecfb0db1a0cb490852c5b3",
+    "METEO_COUNTY_US.csv": "7458c1682fea0494c61e812ea1162256344441186f7991b40d8a19bcb7427201",
+    "SOIL_COUNTY_US.csv": "d71073640368946d50b59a2822f2d6d0543b5c51e1eeb85854ca79fd02025fe7"
+  },
+  "frozen_evaluation_sha256": "214623d5bb3cce58d4e091d41192bb78201f77a5e0388637f90005637f0ab158",
+  "target_access_ready": false,
+  "new_targets_retrieved": false,
+  "new_scores_available": false,
+  "nass_count_status": "Not executed; NASS API key required. Row counts would not establish usable target coverage.",
+  "scope": "Candidate name/code correspondence only. NASS identity, boundary continuity, 2024-2025 observation coverage and predictor equivalence remain unverified."
+}
